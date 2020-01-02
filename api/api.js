@@ -64,7 +64,7 @@ MongoClient.connect('mongodb+srv://batteries76:roQby9-tobsoz-zakqen@cluster0-7uu
         console.log(req.query)
         // { $and: [ { price: { $ne: 1.99 } }, { price: { $exists: true } } ] } 
         // { field: { $in: [<value1>, <value2>, ... <valueN> ] } }
-        langTree.collection('accumulated-geo')
+        langTree.collection('accumulated-geo-indo-euro')
             // .find( { $or: [ {"features.properties.cca2": req.query.code1 }, {"features.properties.cca2": req.query.code2 } ] } )
             .find( { "name": req.query.language } )
             .toArray((err, results) => {
