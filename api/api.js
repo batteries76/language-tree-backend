@@ -11,6 +11,8 @@ const mongoose = require('mongoose')
 //     console.log('OPENED THE MONGO')
 // });
 
+router.use(cors())
+
 const MongoClient = require('mongodb').MongoClient
 
 console.log(MongoClient)
