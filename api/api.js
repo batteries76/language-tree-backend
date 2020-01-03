@@ -30,7 +30,7 @@ MongoClient.connect('mongodb+srv://batteries76:roQby9-tobsoz-zakqen@cluster0-7uu
     const langTree = database.db('language-tree-db')
     // console.log("LANGTREE")
     // console.log(langTree)
-    router.use(cors());
+    // router.use(cors());
 
     /* GET api listing. */
     router.get('/', (req, res) => {
