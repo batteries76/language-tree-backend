@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const cors = require('cors')
 const mongoose = require('mongoose')
 
 // mongoose.connect('mongodb+srv://batteries76:roQby9-tobsoz-zakqen@cluster0-7uukp.mongodb.net', {useNewUrlParser: true});
@@ -26,7 +25,7 @@ MongoClient.connect('mongodb+srv://batteries76:roQby9-tobsoz-zakqen@cluster0-7uu
     const langTree = database.db('language-tree-db')
     // console.log("LANGTREE")
     // console.log(langTree)
-    router.use(cors());
+    // router.use(cors());
 
     /* GET api listing. */
     router.get('/', (req, res) => {
