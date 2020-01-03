@@ -1,6 +1,7 @@
 const express = require('express');
-const router = express.Router();
+
 const mongoose = require('mongoose')
+const cors = require('cors')
 
 // mongoose.connect('mongodb+srv://batteries76:roQby9-tobsoz-zakqen@cluster0-7uukp.mongodb.net', {useNewUrlParser: true});
 
@@ -10,6 +11,8 @@ const mongoose = require('mongoose')
 // db.once('open', () => {
 //     console.log('OPENED THE MONGO')
 // });
+
+const router = express.Router();
 
 // router.use(cors())
 
@@ -27,7 +30,7 @@ MongoClient.connect('mongodb+srv://batteries76:roQby9-tobsoz-zakqen@cluster0-7uu
     const langTree = database.db('language-tree-db')
     // console.log("LANGTREE")
     // console.log(langTree)
-    // router.use(cors());
+    router.use(cors());
 
     /* GET api listing. */
     router.get('/', (req, res) => {
