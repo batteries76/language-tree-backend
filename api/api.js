@@ -72,7 +72,7 @@ MongoClient.connect('mongodb+srv://batteries76:roQby9-tobsoz-zakqen@cluster0-7uu
             // .find( { $or: [ {"features.properties.cca2": req.query.code1 }, {"features.properties.cca2": req.query.code2 } ] } )
             .find( { "name": req.query.language } )
             .toArray((err, results) => {
-                //    console.log(results);
+                console.log(results);
                 res.send(results);
             });
     });
