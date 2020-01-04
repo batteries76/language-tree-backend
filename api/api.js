@@ -69,7 +69,8 @@ MongoClient.connect('mongodb+srv://batteries76:roQby9-tobsoz-zakqen@cluster0-7uu
         console.log(req.query)
         // { $and: [ { price: { $ne: 1.99 } }, { price: { $exists: true } } ] } 
         // { field: { $in: [<value1>, <value2>, ... <valueN> ] } }
-        langTree.collection('accumulated-geo-indo-euro')
+        // langTree.collection('accumulated-geo-indo-euro')
+        langTree.collection('all-accumulated-deflated')
             // .find( { $or: [ {"features.properties.cca2": req.query.code1 }, {"features.properties.cca2": req.query.code2 } ] } )
             .find( { "name": req.query.language } )
             .toArray((err, results) => {
@@ -79,11 +80,11 @@ MongoClient.connect('mongodb+srv://batteries76:roQby9-tobsoz-zakqen@cluster0-7uu
     });
 
     router.get('/percentages-geodata', (req, res) => {
-        console.log("ACCUMULATED geo SPECIFIC TEST TEST!");
+        console.log("ACCUMULATED geo SPECIFIC TEST TEST! (DEFLATED)");
         console.log(req.query)
         // { $and: [ { price: { $ne: 1.99 } }, { price: { $exists: true } } ] } 
         // { field: { $in: [<value1>, <value2>, ... <valueN> ] } }
-        langTree.collection('percentages-geodata')
+        langTree.collection('deflated-percentages-geodata')
             // .find( { $or: [ {"features.properties.cca2": req.query.code1 }, {"features.properties.cca2": req.query.code2 } ] } )
             .find( { "name": req.query.name } )
             .toArray((err, results) => {
