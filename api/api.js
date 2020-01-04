@@ -2,6 +2,7 @@ const express = require('express');
 
 const mongoose = require('mongoose')
 const cors = require('cors')
+const compression = require('compression')
 
 // mongoose.connect('mongodb+srv://batteries76:roQby9-tobsoz-zakqen@cluster0-7uukp.mongodb.net', {useNewUrlParser: true});
 
@@ -14,11 +15,11 @@ const cors = require('cors')
 
 const router = express.Router();
 
-// router.use(cors())
+// router.use(compression())
 
 const MongoClient = require('mongodb').MongoClient
 
-console.log(MongoClient)
+// console.log(MongoClient)
 
 MongoClient.connect('mongodb+srv://batteries76:roQby9-tobsoz-zakqen@cluster0-7uukp.mongodb.net', (err, database) => {
     console.log("In the Mongo connection")
@@ -64,7 +65,7 @@ MongoClient.connect('mongodb+srv://batteries76:roQby9-tobsoz-zakqen@cluster0-7uu
     });
 
     router.get('/accumulated-geo', (req, res) => {
-        console.log("ACCUMULATED geo SPECIFIC TEST TEST!");
+        console.log("ACCUMULATED geo SPECIFIC TEST TEST XXX!");
         console.log(req.query)
         // { $and: [ { price: { $ne: 1.99 } }, { price: { $exists: true } } ] } 
         // { field: { $in: [<value1>, <value2>, ... <valueN> ] } }
