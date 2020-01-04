@@ -2,7 +2,6 @@ const express = require('express');
 
 const mongoose = require('mongoose')
 const cors = require('cors')
-const compression = require('compression')
 
 // mongoose.connect('mongodb+srv://batteries76:roQby9-tobsoz-zakqen@cluster0-7uukp.mongodb.net', {useNewUrlParser: true});
 

@@ -2,13 +2,15 @@
 const express = require('express');
 const path = require('path');
 const http = require('http');
-const cors = require('cors')
+const cors = require('cors');
+const compression = require('compression')
 
 // Get our API routes
 const api = require('./api/api');
 
 const app = express();
 
+app.use(compression())
 app.use(cors())
 
 // Set our api routes
