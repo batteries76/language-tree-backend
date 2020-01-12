@@ -55,9 +55,17 @@ MongoClient.connect('mongodb+srv://batteries76:roQby9-tobsoz-zakqen@cluster0-7uu
     //     });
     // });
 
-    router.get('/language-json-complete', (req, res) => {
+    router.get('/sino-caucasian-language-tree', (req, res) => {
         console.log("LANGUAGES COMPLETE!");
-        langTree.collection('language-tree-complete').find().toArray((err, results) => {
+        langTree.collection('sino-caucasian-stripped-tree').find().toArray((err, results) => {
+    //    console.log(results);
+            res.send(results);
+        });
+    });
+
+    router.get('/indo-european-language-tree', (req, res) => {
+        console.log("LANGUAGES COMPLETE!");
+        langTree.collection('indo-european-stripped-tree').find().toArray((err, results) => {
     //    console.log(results);
             res.send(results);
         });
