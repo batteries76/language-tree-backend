@@ -127,6 +127,30 @@ MongoClient.connect('mongodb+srv://batteries76:roQby9-tobsoz-zakqen@cluster0-7uu
 
     });
 
+    router.get('/indo-european-paths', (req, res) => {
+        console.log("INDO-EURO PATHS");
+        console.log(req.query)
+        langTree.collection('indo-european-paths')
+            // .find( { $or: [ {"features.properties.cca2": req.query.code1 }, {"features.properties.cca2": req.query.code2 } ] } )
+            .find( { "name": req.query.language } )
+            .toArray((err, results) => {
+                console.log(results);
+                res.send(results);
+            });
+    });
+
+    router.get('/sino-caucasian-paths', (req, res) => {
+        console.log("SINO-CAUC PATHS!");
+        console.log(req.query)
+        langTree.collection('sino-caucasian-paths')
+            // .find( { $or: [ {"features.properties.cca2": req.query.code1 }, {"features.properties.cca2": req.query.code2 } ] } )
+            .find( { "name": req.query.language } )
+            .toArray((err, results) => {
+                console.log(results);
+                res.send(results);
+            });
+    });
+
     router.get('/country-geo', (req, res) => {
         console.log("COUNTRY geo SPECIFIC TEST TEST!");
         console.log(req.query)
