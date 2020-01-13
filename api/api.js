@@ -49,7 +49,7 @@ MongoClient.connect('mongodb+srv://batteries76:roQby9-tobsoz-zakqen@cluster0-7uu
 
     router.get('/language-json-complete', (req, res) => {
         console.log("LANGUAGES!");
-        langTree.collection('indo-european-tree-stripped').find().toArray((err, results) => {
+        langTree.collection('indo-european-stripped-tree').find().toArray((err, results) => {
     //    console.log(results);
             res.send(results);
         });
