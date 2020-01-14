@@ -99,11 +99,12 @@ MongoClient.connect('mongodb+srv://batteries76:roQby9-tobsoz-zakqen@cluster0-7uu
     });
 
     router.get('/percentages-geodata', (req, res) => {
-        console.log("ACCUMULATED geo SPECIFIC TEST TEST! (DEFLATED)");
+        console.log("PERCENTAGES GEODATA (DEFLATED)");
         console.log(req.query)
         // { $and: [ { price: { $ne: 1.99 } }, { price: { $exists: true } } ] } 
         // { field: { $in: [<value1>, <value2>, ... <valueN> ] } }
         if (req.query.collection === 'Indo-European') {
+            console.log("CHECKING INDO-EURO COLLECTION")
             langTree.collection('indo-european-percentages-deflated')
                 // .find( { $or: [ {"features.properties.cca2": req.query.code1 }, {"features.properties.cca2": req.query.code2 } ] } )
                 .find( { "name": req.query.language } )
@@ -113,6 +114,7 @@ MongoClient.connect('mongodb+srv://batteries76:roQby9-tobsoz-zakqen@cluster0-7uu
                 });
         }
         else if (req.query.collection === 'Sino-Caucasian') {
+            console.log("CHECKING SINO-CAUCASIAN COLLECTION")
             langTree.collection('sino-caucasian-percentages-deflated')
                 // .find( { $or: [ {"features.properties.cca2": req.query.code1 }, {"features.properties.cca2": req.query.code2 } ] } )
                 .find( { "name": req.query.language } )
