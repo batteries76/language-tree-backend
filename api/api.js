@@ -2,6 +2,7 @@ const express = require('express');
 
 const mongoose = require('mongoose')
 const cors = require('cors')
+const axios = require('axios')
 
 // mongoose.connect('mongodb+srv://batteries76:roQby9-tobsoz-zakqen@cluster0-7uukp.mongodb.net', {useNewUrlParser: true});
 
@@ -228,6 +229,28 @@ MongoClient.connect('mongodb+srv://batteries76:roQby9-tobsoz-zakqen@cluster0-7uu
     //         res.send(results);
     //     });
     // });
+
+    router.get('/language-wiki/:language', (req, res) => {
+        console.log("HIT LANGUAGE-WIKI")
+        const url = 'http://en.wikipedia.org/w/api.php'
+
+
+        axios.get(url + `?action=query&list=search&srsearch=${req.params.language}%20language&format=json`)
+            .then(response => {
+                const wikiResponse = response.data
+                console.log(wikiResponse)
+
+                const searchArray = wikiResponse.query.search
+                const pageId = searchArray[0].pageid
+                axios.get(`http://en.wikipedia.org/w/api.php?action=parse&pageid=${pageId}&format=json&section=0`)
+                    .then(response => {
+                        const openingSection = response.data
+                        const brief = openingSection.parse.text['*']
+
+                        res.send(brief)
+                    })
+            })
+    })
             
 })
 
